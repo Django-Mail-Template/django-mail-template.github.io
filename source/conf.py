@@ -124,7 +124,7 @@ html_additional_pages = {}
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'DjangoRolesAccessDoc'
+htmlhelp_basename = 'DjangoMailTEmplateDoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -151,7 +151,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'DjangoRoles.tex', 'django-roles Documentation',
+    (master_doc, 'DjangoMailTemplates.tex', 'django-mail-template Documentation',
      'Vicente Ramos Garcia', 'manual'),
 ]
 
@@ -161,7 +161,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'djangoroles', 'django-roles Documentation',
+    (master_doc, 'djangomailtemplate', 'django-mail-template Documentation',
      [author], 1)
 ]
 
@@ -172,8 +172,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'DjangoRoles', 'django-roles Documentation',
-     author, 'DjangoRoles', 'One line description of project.',
+    (master_doc, 'DjangoMailTemplates', 'django-mail-template Documentation',
+     author, 'DjangoMailTemplates', 'One line description of project.',
      'Miscellaneous'),
 ]
 
