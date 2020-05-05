@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Advanced &#8212; Django mail template 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reference" href="reference.html" />
+    <link rel="prev" title="Quick start" href="quickstart.html" />
+
+
+
+ 
+<script type="text/javascript" src="templatebuiltins.js"></script>
+<script type="text/javascript">
+(function($) {
+    if (!django_template_builtins) {
+       // templatebuiltins.js missing, do nothing.
+       return;
+    }
+    $(document).ready(function() {
+        // Hyperlink Django template tags and filters
+        var base = "ref/templates/builtins.html";
+        if (base == "#") {
+            // Special case for builtins.html itself
+            base = "";
+        }
+        // Tags are keywords, class '.k'
+        $("div.highlight\\-html\\+django span.k").each(function(i, elem) {
+             var tagname = $(elem).text();
+             if ($.inArray(tagname, django_template_builtins.ttags) != -1) {
+                 var fragment = tagname.replace(/_/, '-');
+                 $(elem).html("<a href='" + base + "#" + fragment + "'>" + tagname + "</a>");
+             }
+        });
+        // Filters are functions, class '.nf'
+        $("div.highlight\\-html\\+django span.nf").each(function(i, elem) {
+             var filtername = $(elem).text();
+             if ($.inArray(filtername, django_template_builtins.tfilters) != -1) {
+                 var fragment = filtername.replace(/_/, '-');
+                 $(elem).html("<a href='" + base + "#" + fragment + "'>" + filtername + "</a>");
+             }
+        });
+    });
+})(jQuery);</script>
+
+  </head><body>
+
+    <div class="document">
+  <div id="custom-doc" class="yui-t6">
+    <div id="hd">
+      <h1><a href="index.html">Django mail template 0.0.1 documentation</a></h1>
+      <div id="global-nav">
+        <a title="Home page" href="index.html">Home</a>  |
+        <a title="Table of contents" href="contents.html">Table of contents</a>  |
+        <a title="Global index" href="genindex.html">Index</a>  |
+        <a title="Module index" href="py-modindex.html">Modules</a>
+      </div>
+      <div class="nav">
+    &laquo; <a href="quickstart.html" title="Quick start">previous</a>
+     |
+    <a title="Django mail template 0.0.1 documentation" href="index.html" accesskey="U">up</a>
+   |
+    <a href="reference.html" title="Reference">next</a> &raquo;</div>
+    </div>
+
+    <div id="bd">
+      <div id="yui-main">
+        <div class="yui-b">
+          <div class="yui-g" id="advanced">
+            
+  <div class="section" id="advanced">
+<h1>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Create a <em>Configuration</em> to map a <em>process name</em> with a MailTemplate. This let
+developer to create an algorithm that use a <em>process name</em> for sending
+emails while users maps <em>MailTemplates</em> with <em>Configurations</em> at run time
+through <em>Django admin interface</em>.</p>
+<p>In short word an administrative user can create/update application’s mails
+at run time.</p>
+<div class="section" id="using-process-map-in-data-models">
+<h3>Using process map in data models<a class="headerlink" href="#using-process-map-in-data-models" title="Permalink to this headline">¶</a></h3>
+<p>Is also possible to use MailTemplate with other data model to get more dynamic
+capabilities. For example, with a book model, you can add it a Char field were
+to keep a <em>process’s name</em>. Then, users can change the process
+mapped with an instance (by changing <em>process’s name</em>), and by doing this they
+will be changing the MailTemplate used to send mails.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="n">audience</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>The upper example will let a user to use admin GUI (if Book model is
+properly registered) to change the audience mapped with each book. The
+next example show a possible code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django_mail_template.models</span> <span class="kn">import</span> <span class="n">Configuration</span>
+
+<span class="o">...</span>
+<span class="n">foreach</span> <span class="n">book</span> <span class="ow">in</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+    <span class="n">mail_template</span> <span class="o">=</span> <span class="n">Configuration</span><span class="o">.</span><span class="n">get_mail_template</span><span class="p">(</span><span class="n">book</span><span class="o">.</span><span class="n">audience</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mail_template</span><span class="p">:</span>
+        <span class="c1"># Do something and send mail</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>In upper example each instance (book) can use a different MailTemplate.
+The mail to send to each audience can be specific. If the audience are kids,
+one type of mail will be used, but if the audience are seniors other type of
+mail will be used. And both type of mail, and their content, can be changed by
+administrative users:</p>
+<ul class="simple">
+<li><p>Changing the value of <em>audience</em> field of a book.</p></li>
+<li><p>Changing or editing the mapped MailTemplate.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="finish-this">
+<h2>Finish this<a class="headerlink" href="#finish-this" title="Permalink to this headline">¶</a></h2>
+<p>Configuration model. With it code can be tied to <em>created</em> process name.
+For example, given an algorithm that send mails to all people in directory,
+if DMT is used, such algorithm can use the MailTemplate given by certain
+<code class="docutils literal notranslate"><span class="pre">Configuration('process_name')</span></code>. Now the same algorithm can be used to send
+christmas or new year regards by just changing at admin GUI the MailTemplate
+linked to that Configuration.</p>
+<p>Also a Configuration (indirect) or MailTemplate (direct) can be used as part
+of new models, read more about it in advanced.</p>
+</div>
+</div>
+<div class="section" id="one">
+<h1>One<a class="headerlink" href="#one" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="two">
+<h2>Two<a class="headerlink" href="#two" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="three">
+<h3>Three<a class="headerlink" href="#three" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="four">
+<h4>Four<a class="headerlink" href="#four" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="five">
+<h5>Five<a class="headerlink" href="#five" title="Permalink to this headline">¶</a></h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      
+        
+          <div class="yui-b" id="sidebar">
+            
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Advanced</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="#using-process-map-in-data-models">Using process map in data models</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#finish-this">Finish this</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#one">One</a><ul>
+<li><a class="reference internal" href="#two">Two</a><ul>
+<li><a class="reference internal" href="#three">Three</a><ul>
+<li><a class="reference internal" href="#four">Four</a><ul>
+<li><a class="reference internal" href="#five">Five</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="quickstart.html"
+                        title="previous chapter">Quick start</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="reference.html"
+                        title="next chapter">Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/advanced.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+              <h3>Last update:</h3>
+              <p class="topless">May 05, 2020</p>
+          </div>
+        
+      
+    </div>
+
+    <div id="ft">
+      <div class="nav">
+    &laquo; <a href="quickstart.html" title="Quick start">previous</a>
+     |
+    <a title="Django mail template 0.0.1 documentation" href="index.html" accesskey="U">up</a>
+   |
+    <a href="reference.html" title="Reference">next</a> &raquo;</div>
+    </div>
+  </div>
+
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

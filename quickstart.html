@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Quick start &#8212; Django mail template 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Advanced" href="advanced.html" />
+    <link rel="prev" title="Welcome to Django mail template’s documentation!" href="index.html" />
+
+
+
+ 
+<script type="text/javascript" src="templatebuiltins.js"></script>
+<script type="text/javascript">
+(function($) {
+    if (!django_template_builtins) {
+       // templatebuiltins.js missing, do nothing.
+       return;
+    }
+    $(document).ready(function() {
+        // Hyperlink Django template tags and filters
+        var base = "ref/templates/builtins.html";
+        if (base == "#") {
+            // Special case for builtins.html itself
+            base = "";
+        }
+        // Tags are keywords, class '.k'
+        $("div.highlight\\-html\\+django span.k").each(function(i, elem) {
+             var tagname = $(elem).text();
+             if ($.inArray(tagname, django_template_builtins.ttags) != -1) {
+                 var fragment = tagname.replace(/_/, '-');
+                 $(elem).html("<a href='" + base + "#" + fragment + "'>" + tagname + "</a>");
+             }
+        });
+        // Filters are functions, class '.nf'
+        $("div.highlight\\-html\\+django span.nf").each(function(i, elem) {
+             var filtername = $(elem).text();
+             if ($.inArray(filtername, django_template_builtins.tfilters) != -1) {
+                 var fragment = filtername.replace(/_/, '-');
+                 $(elem).html("<a href='" + base + "#" + fragment + "'>" + filtername + "</a>");
+             }
+        });
+    });
+})(jQuery);</script>
+
+  </head><body>
+
+    <div class="document">
+  <div id="custom-doc" class="yui-t6">
+    <div id="hd">
+      <h1><a href="index.html">Django mail template 0.0.1 documentation</a></h1>
+      <div id="global-nav">
+        <a title="Home page" href="index.html">Home</a>  |
+        <a title="Table of contents" href="contents.html">Table of contents</a>  |
+        <a title="Global index" href="genindex.html">Index</a>  |
+        <a title="Module index" href="py-modindex.html">Modules</a>
+      </div>
+      <div class="nav">
+    &laquo; <a href="index.html" title="Welcome to Django mail template’s documentation!">previous</a>
+     |
+    <a title="Django mail template 0.0.1 documentation" href="index.html" accesskey="U">up</a>
+   |
+    <a href="advanced.html" title="Advanced">next</a> &raquo;</div>
+    </div>
+
+    <div id="bd">
+      <div id="yui-main">
+        <div class="yui-b">
+          <div class="yui-g" id="quickstart">
+            
+  <div class="section" id="quick-start">
+<h1>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<p>A very simple Django application for:</p>
+<ul class="simple">
+<li><p>Provide <em>basic template</em> features for mails subjects and bodies.</p></li>
+<li><p>Provide needed infrastructure to let administrative users create/edit mails
+used by applications.</p></li>
+</ul>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">django_mail_template</span></code> is a very simple application to create mails templates
+with context variables, and then send mails with context variables replaced
+with values. Mails templates are created with <em>Django admin interface</em>.</p>
+<p>For example, if context variables are: <em>first_name</em> and <em>last_name</em>, while
+cycling a collection of people (clients, providers, and like) is possible to
+send a mail to each of them using their first name and last name to replace
+the context variables in <em>MailTemplate</em> body or subject:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Dear</span> <span class="pre">{first_name}</span> <span class="pre">{last_name}</span> <span class="pre">have</span> <span class="pre">a</span> <span class="pre">great</span> <span class="pre">new</span> <span class="pre">year!!!</span></code></p>
+<p>Also with indirect use between <em>MailTemplate</em> and <em>Configuration</em> is
+possible to change at run time the mail template mapped to a piece of code
+through a <em>Configuration</em> instance.</p>
+<p>For example, create two mail template: one with christmas greeting text
+and subject, and other mail template with new year greeting text and subject.
+Then the same process (code) used in upper example can be used to send
+christmas and new year greeting to all people.</p>
+<p>Change which mail template is used by which process in <em>Django admin
+interface</em>.</p>
+<div class="section" id="works-with">
+<h3>Works with<a class="headerlink" href="#works-with" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Django 1.10+ (Python 3.5+)</p></li>
+<li><p>Django 2+ (Python 3.5+)</p></li>
+<li><p>Django 3+ (Python 3.5+)</p></li>
+<li><p>[Documentation](<a class="reference external" href="https://django-mail-template.github.io">https://django-mail-template.github.io</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<p>1) Django’s email docs specify all requirements for sending mail with
+django.core.mail (<a class="reference external" href="https://docs.djangoproject.com/en/dev/topics/email/">Django email</a>).</p>
+<p>2) <code class="docutils literal notranslate"><span class="pre">django_mail_template</span></code> uses <em>Django admin interface</em>, check official
+documentation for it’s requirements: <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/contrib/admin/">Django admin site</a>.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Quick start<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation-and-configuration">
+<h3>Installation and configuration<a class="headerlink" href="#installation-and-configuration" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">django_mail_template</span></code> from pypi:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">-</span><span class="n">mail</span><span class="o">-</span><span class="n">template</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Add <em>‘django_mail_template’</em> to your INSTALLED_APPS:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;django_mail_template.apps.DjangoMailTemplateConfig&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>3. Run migrations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="use-django-mail-template">
+<h2>Use Django Mail Template<a class="headerlink" href="#use-django-mail-template" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="direct-use">
+<h3>1. Direct use<a class="headerlink" href="#direct-use" title="Permalink to this headline">¶</a></h3>
+<p>You can simple use <code class="docutils literal notranslate"><span class="pre">django_mail_template</span></code> to send mails:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django_mail_template.models</span> <span class="kn">import</span> <span class="n">MailTemplate</span>
+
+<span class="n">mail_template</span> <span class="o">=</span> <span class="n">MailTemplate</span><span class="p">(</span><span class="n">from</span><span class="o">=</span><span class="s2">&quot;a@b.com&quot;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;b@b.com&quot;</span><span class="p">],</span>
+                             <span class="n">subject</span><span class="o">=</span><span class="s2">&quot;Django Mail Template quick start.&quot;</span><span class="p">)</span>
+<span class="n">mail_template</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="template-features">
+<h3>2. Template features<a class="headerlink" href="#template-features" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">django_mail_template</span></code>’s <em>basic template</em> feature is based in variables
+replacement with Python string format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django_mail_template.models</span> <span class="kn">import</span> <span class="n">MailTemplate</span>
+
+<span class="o">...</span>
+<span class="n">mail_template</span><span class="p">,</span> <span class="n">created</span> <span class="o">=</span> <span class="n">MailTemplate</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span>
+    <span class="n">from</span><span class="o">=</span><span class="s2">&quot;a@b.com&quot;</span><span class="p">,</span>
+    <span class="n">subject</span><span class="o">=</span><span class="s2">&quot;Hello </span><span class="si">{client}</span><span class="s2">.&quot;</span><span class="p">,</span>
+    <span class="n">body</span><span class="o">=</span><span class="s2">&quot;Dear </span><span class="si">{client}</span><span class="s2">: We are delivering your </span><span class="si">{product}</span><span class="s2">.&quot;</span>
+<span class="p">)</span>
+
+<span class="o">...</span>
+<span class="n">mail_template</span><span class="o">.</span><span class="n">to</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bobtheclient@c.com&quot;</span><span class="p">]</span>
+<span class="n">mail_template</span><span class="o">.</span><span class="n">send</span><span class="p">({</span><span class="s2">&quot;client&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob TheClient&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;Great product&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Administrative users can create or edit MailTemplate using <em>Django admin
+interface</em> and redact text using Python string format.</p>
+</div>
+<div class="section" id="indirect-use">
+<h3>3. Indirect use<a class="headerlink" href="#indirect-use" title="Permalink to this headline">¶</a></h3>
+<p>Is also possible to use an indirect call through Configuration data model.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django_mail_template.models</span> <span class="kn">import</span> <span class="n">Configuration</span>
+
+<span class="n">configuration</span><span class="p">,</span> <span class="n">created</span> <span class="o">=</span> <span class="n">Configuration</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span>
+    <span class="n">process</span><span class="o">=</span><span class="s2">&quot;process_name&quot;</span>
+<span class="p">)</span>
+<span class="k">if</span> <span class="n">configuration</span><span class="o">.</span><span class="n">mail_template</span><span class="p">:</span>
+    <span class="n">mail_template</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The upper case requires a Configuration’s instance with “process_name” as
+process field value and a MailTemplate’s instance mapped to Configuration’s
+instance. Both instance can be created using <em>Django admin interface</em>.</p>
+</div>
+<div class="section" id="django-admin-interface">
+<h3>4. Django admin interface<a class="headerlink" href="#django-admin-interface" title="Permalink to this headline">¶</a></h3>
+<p>When <code class="docutils literal notranslate"><span class="pre">django_mail_template</span></code> is installed, and migrations applied, <em>Django
+admin interface</em> will expose to administrative users a new section with title
+<em>Django Mail Template</em>. User can manage <em>MailTempaltes</em> and <em>Configurations</em>
+from here:</p>
+<ul class="simple">
+<li><p>MailTemplate: Users can redact mails (create, edit, delete).</p></li>
+<li><p>Configuration: If code points to <em>Configurations</em> (indirect use),
+administrative users can change mapped <em>MailTemplate</em> to use new mail
+template without changing code.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      
+        
+          <div class="yui-b" id="sidebar">
+            
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Quick start</a><ul>
+<li><a class="reference internal" href="#description">Description</a><ul>
+<li><a class="reference internal" href="#works-with">Works with</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">Quick start</a><ul>
+<li><a class="reference internal" href="#installation-and-configuration">Installation and configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#use-django-mail-template">Use Django Mail Template</a><ul>
+<li><a class="reference internal" href="#direct-use">1. Direct use</a></li>
+<li><a class="reference internal" href="#template-features">2. Template features</a></li>
+<li><a class="reference internal" href="#indirect-use">3. Indirect use</a></li>
+<li><a class="reference internal" href="#django-admin-interface">4. Django admin interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to Django mail template’s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="advanced.html"
+                        title="next chapter">Advanced</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/quickstart.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+              <h3>Last update:</h3>
+              <p class="topless">May 05, 2020</p>
+          </div>
+        
+      
+    </div>
+
+    <div id="ft">
+      <div class="nav">
+    &laquo; <a href="index.html" title="Welcome to Django mail template’s documentation!">previous</a>
+     |
+    <a title="Django mail template 0.0.1 documentation" href="index.html" accesskey="U">up</a>
+   |
+    <a href="advanced.html" title="Advanced">next</a> &raquo;</div>
+    </div>
+  </div>
+
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

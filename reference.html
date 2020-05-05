@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Reference &#8212; Django mail template 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Advanced" href="advanced.html" />
+
+
+
+ 
+<script type="text/javascript" src="templatebuiltins.js"></script>
+<script type="text/javascript">
+(function($) {
+    if (!django_template_builtins) {
+       // templatebuiltins.js missing, do nothing.
+       return;
+    }
+    $(document).ready(function() {
+        // Hyperlink Django template tags and filters
+        var base = "ref/templates/builtins.html";
+        if (base == "#") {
+            // Special case for builtins.html itself
+            base = "";
+        }
+        // Tags are keywords, class '.k'
+        $("div.highlight\\-html\\+django span.k").each(function(i, elem) {
+             var tagname = $(elem).text();
+             if ($.inArray(tagname, django_template_builtins.ttags) != -1) {
+                 var fragment = tagname.replace(/_/, '-');
+                 $(elem).html("<a href='" + base + "#" + fragment + "'>" + tagname + "</a>");
+             }
+        });
+        // Filters are functions, class '.nf'
+        $("div.highlight\\-html\\+django span.nf").each(function(i, elem) {
+             var filtername = $(elem).text();
+             if ($.inArray(filtername, django_template_builtins.tfilters) != -1) {
+                 var fragment = filtername.replace(/_/, '-');
+                 $(elem).html("<a href='" + base + "#" + fragment + "'>" + filtername + "</a>");
+             }
+        });
+    });
+})(jQuery);</script>
+
+  </head><body>
+
+    <div class="document">
+  <div id="custom-doc" class="yui-t6">
+    <div id="hd">
+      <h1><a href="index.html">Django mail template 0.0.1 documentation</a></h1>
+      <div id="global-nav">
+        <a title="Home page" href="index.html">Home</a>  |
+        <a title="Table of contents" href="contents.html">Table of contents</a>  |
+        <a title="Global index" href="genindex.html">Index</a>  |
+        <a title="Module index" href="py-modindex.html">Modules</a>
+      </div>
+      <div class="nav">
+    &laquo; <a href="advanced.html" title="Advanced">previous</a>
+     |
+    <a title="Django mail template 0.0.1 documentation" href="index.html" accesskey="U">up</a></div>
+    </div>
+
+    <div id="bd">
+      <div id="yui-main">
+        <div class="yui-b">
+          <div class="yui-g" id="reference">
+            
+  <div class="section" id="reference">
+<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-django_mail_template.models">
+<span id="data-models"></span><h2>Data models<a class="headerlink" href="#module-django_mail_template.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="django_mail_template.models.Configuration">
+<em class="property">class </em><code class="sig-prename descclassname">django_mail_template.models.</code><code class="sig-name descname">Configuration</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">process</em>, <em class="sig-param">mail_template</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/django_mail_template/models.html#Configuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#django_mail_template.models.Configuration" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="exception">
+<dt id="django_mail_template.models.Configuration.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#django_mail_template.models.Configuration.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="django_mail_template.models.Configuration.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#django_mail_template.models.Configuration.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="django_mail_template.models.MailTemplate">
+<em class="property">class </em><code class="sig-prename descclassname">django_mail_template.models.</code><code class="sig-name descname">MailTemplate</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/django_mail_template/models.html#MailTemplate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#django_mail_template.models.MailTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mail():</p>
+<dl class="exception">
+<dt id="django_mail_template.models.MailTemplate.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="django_mail_template.models.MailTemplate.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="django_mail_template.models.MailTemplate.clean">
+<code class="sig-name descname">clean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/django_mail_template/models.html#MailTemplate.clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#django_mail_template.models.MailTemplate.clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for doing any extra model-wide validation after clean() has been
+called on every field by self.clean_fields. Any ValidationError raised
+by this method will not be associated with a particular field; it will
+have a special-case association with the field defined by NON_FIELD_ERRORS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="django_mail_template.models.MailTemplate.from_email">
+<code class="sig-name descname">from_email</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.from_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field with sender (from) email address.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="django_mail_template.models.MailTemplate.send">
+<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/django_mail_template/models.html#MailTemplate.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#django_mail_template.models.MailTemplate.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>When sending an email a set of attributes will be required.</p>
+<p>The required attributes are mainly dictated by django.core.mail
+used to send mail:
+* Message or body.
+* Subject.
+* Recipients list or to.
+* From email</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>context</strong> – A dictionary with context variables to be used with
+the subject and the message.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A tuple (result, message) where result is a boolean indicating
+if mail could be sent or not. An a message in case the mail
+could not be sent the message will be the reason. This could
+have future uses if logging is implemented.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="django_mail_template.models.MailTemplate.subject">
+<code class="sig-name descname">subject</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subject for the mail. Context variable can be used</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="django_mail_template.models.MailTemplate.to">
+<code class="sig-name descname">to</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field with destiny email address.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      
+        
+          <div class="yui-b" id="sidebar">
+            
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Reference</a><ul>
+<li><a class="reference internal" href="#module-django_mail_template.models">Data models</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="advanced.html"
+                        title="previous chapter">Advanced</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/reference.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+              <h3>Last update:</h3>
+              <p class="topless">May 05, 2020</p>
+          </div>
+        
+      
+    </div>
+
+    <div id="ft">
+      <div class="nav">
+    &laquo; <a href="advanced.html" title="Advanced">previous</a>
+     |
+    <a title="Django mail template 0.0.1 documentation" href="index.html" accesskey="U">up</a></div>
+    </div>
+  </div>
+
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>
