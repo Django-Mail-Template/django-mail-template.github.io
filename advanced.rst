@@ -1,7 +1,3 @@
-====================
-Django Mail Template
-====================
-
 ========
 Advanced
 ========
@@ -75,3 +71,20 @@ Also a Configuration (indirect) or MailTemplate (direct) can be used as part
 of new models, read more about it in advanced.
 
 
+
+
+===
+One
+===
+
+Two
+===
+
+Three
+-----
+
+Four
+~~~~
+
+Five
+^^^^

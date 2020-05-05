@@ -1,44 +1,34 @@
-.. Django mail template documentation master file, created by
-   sphinx-quickstart on Sun Dec 29 18:58:16 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 ================================================
 Welcome to Django mail template's documentation!
 ================================================
 
+.. image:: _static/django-mail-template.png
+
+.. image:: https://travis-ci.org/django-mail-template/master.svg?branch=master
+  :target: https://travis-ci.org/django-mail-template/master
+
+.. image:: https://codecov.io/gh/django-mail-template/master/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/django-mail-template/master
+
+.. _`Source code at Github.com`: https://github.com/django-mail-template/master
+
+`Source code at Github.com`_
+
+`Package at pypi.org`_
+
+.. _`Package at pypi.org`: https://pypi.org/project/django-mail-template/
+
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    quickstart
    advanced
    reference
 
-
-==================
-Indices and tables
-==================
-
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
 
-
-
-===
-One
-===
-
-Two
-===
-
-Three
------
-
-Four
-~~~~
-
-Five
-^^^^
 
