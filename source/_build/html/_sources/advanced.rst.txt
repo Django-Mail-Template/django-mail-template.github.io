@@ -55,36 +55,3 @@ administrative users:
 * Changing the value of *audience* field of a book.
 
 * Changing or editing the mapped MailTemplate.
-
-
-Finish this
-===========
-
-Configuration model. With it code can be tied to *created* process name.
-For example, given an algorithm that send mails to all people in directory,
-if DMT is used, such algorithm can use the MailTemplate given by certain
-``Configuration('process_name')``. Now the same algorithm can be used to send
-christmas or new year regards by just changing at admin GUI the MailTemplate
-linked to that Configuration.
-
-Also a Configuration (indirect) or MailTemplate (direct) can be used as part
-of new models, read more about it in advanced.
-
-
-
-
-===
-One
-===
-
-Two
-===
-
-Three
------
-
-Four
-~~~~
-
-Five
-^^^^

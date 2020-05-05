@@ -31,9 +31,9 @@ copyright = 'MIT Licence'
 author = 'Vicente Ramos Garcia'
 
 # The short X.Y version
-version = '0.0.1'
+version = '0.1.3'
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.1.3'
 
 
 # -- General configuration ---------------------------------------------------
@@ -91,8 +91,8 @@ add_function_parentheses = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = "djangodocs"
-# html_theme = "classic"
+# html_theme = "djangodocs"
+html_theme = "classic"
 # html_theme = "traditional"
 
 
