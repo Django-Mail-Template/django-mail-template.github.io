@@ -5,8 +5,15 @@ A very simple Django application for:
 
 * Provide *basic template* features for mails subjects and bodies.
 
-* Provide needed infrastructure to let users create/edit mails content used by
-applications.
+* Provide needed infrastructure to let users dynamically (at run
+time) create/edit mails content used by applications.
+
+* Test created *mail templates* (:ref:`testing_mail_template`).
+
+* Optionally you can install `Django CKEditor`_ to have rich text mails.
+
+.. _`Django CKEditor`: https://github.com/django-ckeditor/django-ckeditor
+
 
 Description
 ===========
@@ -177,5 +184,5 @@ from here:
   administrative users can change mapped *MailTemplate* to use new mail
   template without changing code.
 
-* Test MailTemplates.
+* Test created *mail templates* (:ref:`testing_mail_template`).
 

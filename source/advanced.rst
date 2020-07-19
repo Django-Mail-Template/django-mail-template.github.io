@@ -66,24 +66,37 @@ do not accept list), then *MailTemplate* during the sending process will
 convert this fields in lists with coma separated addresses.
 
 
-CKEditor
-=========
+Django CKEditor
+===============
+
+Is possible to have *MailTemplate* with rich text. This emails will be sent as
+text/html. To achieve this is needed to install Django CKEditor in the project
+and it will be automatically used for *MailTemplate* bodies with all the
+advantages offered by Django CKEditor.
+
+Installation
+------------
+
+1) First need CKEditor library for django
 
 ::
 
     pip install django-ckeditor
 
-Add 'ckeditor' to your INSTALLED_APPS setting.
+
+2) Add 'ckeditor' to your INSTALLED_APPS setting.
 
 
-Run the collectstatic management command: $ ./manage.py collectstatic. This will copy
+3) Run the collectstatic management command:
 
-Finally run $./manage.py makemigrations and $./manage.py migrate.
+::
+    python manage.py collectstatic.
 
+4) Rebuild ``django_mail_template`` migrations and then migrate database.
+This wil replace MailTemplate body type (TextField) for
+ckeditor.fields.RichTextField field type.
 
+::
 
-
-
-
-
-
+    python manage.py makemigrations
+    python manage.py migrate.
