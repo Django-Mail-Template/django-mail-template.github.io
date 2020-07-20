@@ -4,8 +4,8 @@ Welcome to Django mail template's documentation!
 
 .. image:: _static/django-mail-template.png
 
-.. image:: https://travis-ci.org/django-mail-template/master.svg?branch=master
-  :target: https://travis-ci.org/django-mail-template/master
+.. image:: https://travis-ci.org/Django-Mail-Template/master.svg?branch=master
+  :target: https://travis-ci.org/Django-Mail-Template/master
 
 .. image:: https://codecov.io/gh/django-mail-template/master/branch/master/graph/badge.svg
   :target: https://codecov.io/gh/django-mail-template/master
