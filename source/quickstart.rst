@@ -6,13 +6,9 @@ A very simple Django application for:
 * Provide *basic template* features for mails subjects and bodies.
 
 * Provide needed infrastructure to let users dynamically (at run
-time) create/edit mails content used by applications.
+  time) create/edit mails content used by applications.
 
 * Test created *mail templates* (:ref:`testing_mail_template`).
-
-* Optionally you can install `Django CKEditor`_ to have rich text mails.
-
-.. _`Django CKEditor`: https://github.com/django-ckeditor/django-ckeditor
 
 
 Description
@@ -62,9 +58,14 @@ django.core.mail (`Django email`_).
 2) ``django_mail_template`` uses *Django admin site*, check official
 documentation for it's requirements: `Django admin site`_.
 
+3) ``django_mail_template`` uses `Django CKEditor`_ to let write rich text
+MailTeamplate.
+
 .. _`Django email`: https://docs.djangoproject.com/en/dev/topics/email/
 
 .. _`Django admin site`: https://docs.djangoproject.com/en/dev/ref/contrib/admin/
+
+.. _`Django CKEditor`: https://github.com/django-ckeditor/django-ckeditor
 
 
 Quick start
@@ -80,20 +81,27 @@ Installation and configuration
 
    pip install django-mail-template
 
-2. Add *'django_mail_template'* to your INSTALLED_APPS:
-
+2. Add *'django_mail_template'* and *'ckeditor'* to your INSTALLED_APPS:
 ::
 
-   INSTALLED_APPS = [
-       ...
-       'django_mail_template.apps.DjangoMailTemplateConfig',
-   ]
+    INSTALLED_APPS = [
+        ...
+        'ckeditor'
+        'django_mail_template',
+    ]
 
 
 3. Run migrations:
 ::
 
     python manage.py migrate
+
+
+4. Run the collectstatic management command:
+::
+
+    python manage.py collectstatic
+
 
 
 Use Django Mail Template
@@ -135,14 +143,14 @@ replacement with Python string format:
                         "product": "Great product"})
 
 Administrative users can create or edit MailTemplate using *Django admin
-interface* and redact text using Python string format.
+site* and redact text using Python string format.
 
 
 3. Indirect use
 ---------------
 
 Is also possible to use an indirect call through Configuration data model.
-In *Django admin interface* (or by code) you can create:
+In *Django admin site* (or by code) you can create:
 
 ::
 
@@ -176,7 +184,7 @@ Then in code
 When ``django_mail_template`` is installed, and migrations applied, *Django
 admin site* will expose to administrative users a new section with title
 *Django Mail Template*. User can manage *MailTempaltes* and *Configurations*
-from here:
+from there:
 
 * MailTemplate: Users can redact mails (create, edit, delete).
 

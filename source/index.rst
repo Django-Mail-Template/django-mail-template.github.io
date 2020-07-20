@@ -25,6 +25,7 @@ Welcome to Django mail template's documentation!
 
    quickstart
    advanced
+   testing
    reference
 
 * :ref:`genindex`

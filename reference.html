@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Reference &#8212; Django mail template 0.1.3 documentation</title>
+    <title>Reference &#8212; Django mail template 0.1.7 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -16,7 +16,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Advanced" href="advanced.html" /> 
+    <link rel="prev" title="Testing Mail Template" href="testing.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,9 +28,9 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="advanced.html" title="Advanced"
+          <a href="testing.html" title="Testing Mail Template"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Django mail template 0.1.3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Django mail template 0.1.7 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -45,7 +45,7 @@
 <span id="data-models"></span><h2>Data models<a class="headerlink" href="#module-django_mail_template.models" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="django_mail_template.models.Configuration">
-<em class="property">class </em><code class="sig-prename descclassname">django_mail_template.models.</code><code class="sig-name descname">Configuration</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">process</em>, <em class="sig-param">mail_template</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/django_mail_template/models.html#Configuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#django_mail_template.models.Configuration" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">django_mail_template.models.</code><code class="sig-name descname">Configuration</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">process</em>, <em class="sig-param">mail_template</em>, <em class="sig-param">description</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/django_mail_template/models.html#Configuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#django_mail_template.models.Configuration" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="exception">
 <dt id="django_mail_template.models.Configuration.DoesNotExist">
 <em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#django_mail_template.models.Configuration.DoesNotExist" title="Permalink to this definition">¶</a></dt>
@@ -60,9 +60,8 @@
 
 <dl class="class">
 <dt id="django_mail_template.models.MailTemplate">
-<em class="property">class </em><code class="sig-prename descclassname">django_mail_template.models.</code><code class="sig-name descname">MailTemplate</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/django_mail_template/models.html#MailTemplate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#django_mail_template.models.MailTemplate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mail():</p>
-<dl class="exception">
+<em class="property">class </em><code class="sig-prename descclassname">django_mail_template.models.</code><code class="sig-name descname">MailTemplate</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">title</em>, <em class="sig-param">to</em>, <em class="sig-param">cc</em>, <em class="sig-param">bcc</em>, <em class="sig-param">from_email</em>, <em class="sig-param">subject</em>, <em class="sig-param">body</em>, <em class="sig-param">reply_to</em>, <em class="sig-param">description</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/django_mail_template/models.html#MailTemplate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#django_mail_template.models.MailTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="exception">
 <dt id="django_mail_template.models.MailTemplate.DoesNotExist">
 <em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.DoesNotExist" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -71,6 +70,18 @@
 <dt id="django_mail_template.models.MailTemplate.MultipleObjectsReturned">
 <em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="attribute">
+<dt id="django_mail_template.models.MailTemplate.bcc">
+<code class="sig-name descname">bcc</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.bcc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field with email’s destinies to be blind copied.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="django_mail_template.models.MailTemplate.cc">
+<code class="sig-name descname">cc</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.cc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field with email’s destinies to be copied.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="django_mail_template.models.MailTemplate.clean">
@@ -85,6 +96,12 @@ have a special-case association with the field defined by NON_FIELD_ERRORS.</p>
 <dt id="django_mail_template.models.MailTemplate.from_email">
 <code class="sig-name descname">from_email</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.from_email" title="Permalink to this definition">¶</a></dt>
 <dd><p>Field with sender (from) email address.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="django_mail_template.models.MailTemplate.reply_to">
+<code class="sig-name descname">reply_to</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.reply_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field with email’s reply to.</p>
 </dd></dl>
 
 <dl class="method">
@@ -118,6 +135,12 @@ have future uses if logging is implemented.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="django_mail_template.models.MailTemplate.title">
+<code class="sig-name descname">title</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Title for mail template</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="django_mail_template.models.MailTemplate.to">
 <code class="sig-name descname">to</code><a class="headerlink" href="#django_mail_template.models.MailTemplate.to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Field with destiny email address.</p>
@@ -143,8 +166,8 @@ have future uses if logging is implemented.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="advanced.html"
-                        title="previous chapter">Advanced</a></p>
+  <p class="topless"><a href="testing.html"
+                        title="previous chapter">Testing Mail Template</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -176,14 +199,14 @@ have future uses if logging is implemented.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="advanced.html" title="Advanced"
+          <a href="testing.html" title="Testing Mail Template"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Django mail template 0.1.3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Django mail template 0.1.7 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright MIT Licence.
-      Last updated on May 05, 2020.
+        &#169; Copyright BSD Licence.
+      Last updated on Jul 19, 2020.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
   </body>

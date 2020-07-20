@@ -27,13 +27,13 @@ django.setup()
 # -- Project information -----------------------------------------------------
 
 project = 'Django mail template'
-copyright = 'MIT Licence'
+copyright = 'BSD Licence'
 author = 'Vicente Ramos Garcia'
 
 # The short X.Y version
-version = '0.1.3'
+version = '0.1.7'
 # The full version, including alpha/beta/rc tags
-release = '0.1.3'
+release = '0.1.7'
 
 
 # -- General configuration ---------------------------------------------------
